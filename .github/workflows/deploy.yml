@@ -46,9 +46,7 @@ jobs:
           script: |
             export KUBECONFIG=/home/ubuntu/.kube/config
             
-            # Note: Before this runs, ensure you have applied the k8s manifests at least once manually:
-            # kubectl apply -f k8s/
-            
+            # 1. Update Application Deployments
             # Restart deployments to pull the latest images
             kubectl rollout restart deployment/zynkly-backend
             kubectl rollout restart deployment/zynkly-frontend
@@ -56,3 +54,11 @@ jobs:
             # Check rollout status
             kubectl rollout status deployment/zynkly-backend
             kubectl rollout status deployment/zynkly-frontend
+            
+            # 2. Update Monitoring Stack (Assuming the repository is pulled on EC2)
+            # Make sure to run `git pull` on your EC2 instance in the project directory before this runs.
+            # cd /path/to/your/project
+            # helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+            # helm repo update
+            # helm upgrade --install monitoring prometheus-community/kube-prometheus-stack -f k8s/monitoring/values.yaml --create-namespace --namespace monitoring
+
