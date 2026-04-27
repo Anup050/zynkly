@@ -1,0 +1,38 @@
+:root {
+  --primary-color: #00c48c;
+  --primary-hover: #00a576;
+  --text-dark: #2a3b4c;
+  --text-gray: #6b7c93;
+  --bg-light: #f8f9fa;
+  --bg-white: #ffffff;
+  --border-color: #eaeaea;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}

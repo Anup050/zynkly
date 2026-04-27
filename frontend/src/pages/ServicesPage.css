@@ -1,0 +1,106 @@
+.services-page h1 {
+  color: #28a745;
+  margin-bottom: 0.5rem;
+}
+
+.services-intro {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.services-msg {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.services-msg.success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.services-msg.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.service-image,
+.service-image-placeholder {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: #f0f0f0;
+}
+
+.service-image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.service-body {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-body h3 {
+  color: #28a745;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.service-desc {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  flex: 1;
+}
+
+.service-duration {
+  color: #888;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.service-actions {
+  margin-top: auto;
+}
+
+.add-cart-btn {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.add-cart-btn:hover {
+  background: #218838;
+}
+
+.no-services {
+  color: #666;
+  text-align: center;
+  padding: 2rem;
+}

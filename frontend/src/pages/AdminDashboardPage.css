@@ -1,0 +1,148 @@
+.admin-page h1 {
+  color: #28a745;
+  margin-bottom: 1.5rem;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tab {
+  padding: 0.6rem 1.25rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.tab:hover {
+  border-color: #28a745;
+  color: #28a745;
+}
+
+.tab.active {
+  background: #28a745;
+  color: #fff;
+  border-color: #28a745;
+}
+
+.admin-msg {
+  padding: 0.75rem;
+  background: #d4edda;
+  color: #155724;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.admin-orders h2,
+.admin-users h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.no-data {
+  color: #666;
+  padding: 2rem;
+  text-align: center;
+}
+
+.admin-order-list,
+.admin-user-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.admin-order-card,
+.admin-user-card {
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.admin-order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.admin-order-card .order-id,
+.admin-order-card .order-status {
+  font-weight: 600;
+}
+
+.admin-order-card p,
+.admin-user-card p {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.admin-order-card strong,
+.admin-user-card strong {
+  color: #333;
+}
+
+.status-control {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.status-control label {
+  font-weight: 500;
+  color: #333;
+}
+
+.status-control select {
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.status-control select:focus {
+  outline: none;
+  border-color: #28a745;
+}
+
+.status-pending {
+  background: #fff3cd;
+  color: #856404;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.status-accepted {
+  background: #cce5ff;
+  color: #004085;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.status-completed {
+  background: #d4edda;
+  color: #155724;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.status-cancelled {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,83 @@
+.verify-page {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verify-card {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.verify-card h2 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.verify-hint {
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.otp-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1.25rem;
+  letter-spacing: 0.5rem;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.verify-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.verify-btn:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.verify-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.resend-btn {
+  background: none;
+  border: none;
+  color: #28a745;
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
+.resend-btn:hover:not(:disabled) {
+  color: #218838;
+}
+
+.verify-msg {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.verify-msg.success {
+  color: #155724;
+}
+
+.verify-msg.error {
+  color: #721c24;
+}

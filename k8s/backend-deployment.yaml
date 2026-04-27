@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zynkly-backend
+  labels:
+    app: zynkly-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zynkly-backend
+  template:
+    metadata:
+      labels:
+        app: zynkly-backend
+    spec:
+      containers:
+        - name: zynkly-backend
+          image: anupkumardubey/zynkly-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          envFrom:
+            - secretRef:
+                name: zynkly-secrets

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zynkly-frontend
+  labels:
+    app: zynkly-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zynkly-frontend
+  template:
+    metadata:
+      labels:
+        app: zynkly-frontend
+    spec:
+      containers:
+        - name: zynkly-frontend
+          image: anupkumardubey/zynkly-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "200m"
+              memory: "128Mi"
