@@ -54,11 +54,3 @@ jobs:
             # Check rollout status
             kubectl rollout status deployment/zynkly-backend
             kubectl rollout status deployment/zynkly-frontend
-            
-            # 2. Update Monitoring Stack (Assuming the repository is pulled on EC2)
-            # Make sure to run `git pull` on your EC2 instance in the project directory before this runs.
-            # cd /path/to/your/project
-            # helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-            # helm repo update
-            # helm upgrade --install monitoring prometheus-community/kube-prometheus-stack -f k8s/monitoring/values.yaml --create-namespace --namespace monitoring
-
