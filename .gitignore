@@ -6,11 +6,11 @@ build/
 dist/
 
 # Environment variables
-.env
-.env.*
+# .env
+# .env.*
 
 # Kubernetes secrets (DO NOT COMMIT!)
-k8s/secrets.yaml
+# k8s/secrets.yaml
 
 # OS generated files
 .DS_Store
