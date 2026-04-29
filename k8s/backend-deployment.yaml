@@ -13,12 +13,14 @@ spec:
     metadata:
       labels:
         app: zynkly-backend
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "5000"
+        prometheus.io/path: "/metrics"
     spec:
-      nodeSelector:
-        role: app
       containers:
         - name: zynkly-backend
-          image: anupkumardubey/zynkly-backend:latest
+          image: zynkly/zynkly-backend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 5000

@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const session = require('express-session');
 const passport = require('passport');
+const { metricsMiddleware, client } = require('./middleware/metricsMiddleware');
 
 dotenv.config();
 
@@ -22,6 +23,19 @@ app.use(
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Prometheus metrics endpoint (before session middleware to keep it lightweight)
+app.get('/metrics', async (req, res) => {
+  try {
+    res.set('Content-Type', client.register.contentType);
+    res.end(await client.register.metrics());
+  } catch (err) {
+    res.status(500).end(err.message);
+  }
+});
+
+// Prometheus metrics middleware (records request count & duration for all routes)
+app.use(metricsMiddleware);
 
 app.use(
   session({

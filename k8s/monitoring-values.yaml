@@ -1,0 +1,85 @@
+# Custom values for kube-prometheus-stack Helm chart
+# Tailored for Docker Desktop Kubernetes (single-node, local development)
+
+grafana:
+  adminUser: admin
+  adminPassword: zynkly-monitor
+  service:
+    type: NodePort
+    nodePort: 31000
+  # Auto-load dashboards from ConfigMaps with this label
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+      searchNamespace: ALL
+
+prometheus:
+  service:
+    type: NodePort
+    nodePort: 31090
+  prometheusSpec:
+    # Scrape all ServiceMonitors across all namespaces
+    serviceMonitorSelectorNilUsesHelmValues: false
+    serviceMonitorSelector: {}
+    serviceMonitorNamespaceSelector: {}
+    # Scrape all PodMonitors across all namespaces
+    podMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelector: {}
+    podMonitorNamespaceSelector: {}
+    # Also pick up pods with prometheus.io annotations
+    additionalScrapeConfigs:
+      - job_name: 'kubernetes-pods'
+        kubernetes_sd_configs:
+          - role: pod
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+            action: keep
+            regex: true
+          - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
+            action: replace
+            target_label: __metrics_path__
+            regex: (.+)
+          - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+            action: replace
+            regex: ([^:]+)(?::\d+)?;(\d+)
+            replacement: $1:$2
+            target_label: __address__
+          - source_labels: [__meta_kubernetes_namespace]
+            action: replace
+            target_label: namespace
+          - source_labels: [__meta_kubernetes_pod_name]
+            action: replace
+            target_label: pod
+
+alertmanager:
+  service:
+    type: NodePort
+    nodePort: 31093
+
+# Reduce resource usage for Docker Desktop
+kubeStateMetrics:
+  enabled: true
+
+# Disable node-exporter (incompatible with Docker Desktop — needs host network)
+nodeExporter:
+  enabled: false
+
+prometheus-node-exporter:
+  enabled: false
+
+# Disable components that don't work on Docker Desktop
+kubeEtcd:
+  enabled: false
+kubeProxy:
+  enabled: false
+kubeScheduler:
+  enabled: false
+kubeControllerManager:
+  enabled: false
+
+prometheusOperator:
+  admissionWebhooks:
+    enabled: false
+  tls:
+    enabled: false

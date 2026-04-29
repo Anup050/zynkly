@@ -14,11 +14,9 @@ spec:
       labels:
         app: zynkly-frontend
     spec:
-      nodeSelector:
-        role: app
       containers:
         - name: zynkly-frontend
-          image: anupkumardubey/zynkly-frontend:latest
+          image: zynkly/zynkly-frontend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80

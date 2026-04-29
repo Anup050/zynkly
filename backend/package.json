@@ -18,7 +18,8 @@
     "nodemailer": "^6.9.11",
     "otp-generator": "^4.0.1",
     "passport": "^0.7.0",
-    "passport-google-oauth20": "^2.0.0"
+    "passport-google-oauth20": "^2.0.0",
+    "prom-client": "^15.1.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"

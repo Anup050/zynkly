@@ -5,8 +5,9 @@ metadata:
 spec:
   selector:
     app: zynkly-frontend
+  type: NodePort
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: ClusterIP
+      nodePort: 30080
